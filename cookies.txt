@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+antecedentes.policia.gov.co:7005	TRUE	/	FALSE	1999999999	AlteonP	AJuuaQoSEgq965koGFkfLg$$
+antecedentes.policia.gov.co:7005	TRUE	/	FALSE	1999999999	JSESSIONID	pGQYzttYaNW8ZM-y2rRkj455qSO5sxhVu4vacO1ilCncZPCm-Gux!-80236282
+

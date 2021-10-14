@@ -1,0 +1,31 @@
+HTTrack3.49-2+libhtsjava.so.2 launched on Fri, 24 Sep 2021 13:16:19 at https://antecedentes.policia.gov.co:7005/WebJudicial/
+(winhttrack https://antecedentes.policia.gov.co:7005/WebJudicial/ -O "/home/kali/Sites/police" -%v )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:17:21	Error: 	"Not Found" (404) at link https://antecedentes.policia.gov.co:7005/WebJudicial/apple-touch-icon.png (from https://antecedentes.policia.gov.co:7005/WebJudicial/)
+13:18:20	Error: 	"Not Found" (404) at link https://antecedentes.policia.gov.co:7005/WebJudicial/WebJudicial/ (from https://antecedentes.policia.gov.co:7005/WebJudicial/)
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/glyphicons-halflings-regular.eot
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/glyphicons-halflings-regular.eot?
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/glyphicons-halflings-regular.woff
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/glyphicons-halflings-regular.ttf
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/fontawesome-webfont.eot?v=4.3.0
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/fontawesome-webfont.eot?
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/fontawesome-webfont.woff2?v=4.3.0
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/fontawesome-webfont.woff?v=4.3.0
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/fontawesome-webfont.ttf?v=4.3.0
+13:18:20	Error: 	"Not Found" (404) at link https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/css/owl.video.play.png (from https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/css/plugins.css)
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Light-webfont.eot
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Light-webfont.eot?
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Light-webfont.woff
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Light-webfont.ttf
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Regular-webfont.eot
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Regular-webfont.eot?
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Regular-webfont.woff
+13:18:20	Warning: 	File not parsed, looks like binary: https://antecedentes.policia.gov.co:7005/WebJudicial/resources/templates/assets/fonts/Roboto-Regular-webfont.ttf
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 1 seconds : 110 links scanned, 106 files written (5641940 bytes overall) [5695757 bytes received at 47072 bytes/sec]
+(3 errors, 17 warnings, 0 messages)
